@@ -15,6 +15,8 @@ public:
 	// Sets default values for this component's properties
 	UGrabber();
 
+	virtual void grabberInitialize();
+
 	// Called when the game starts
 	virtual void BeginPlay() override;
 	
@@ -23,6 +25,13 @@ public:
 
 private:
 	float Reach = 100.0f;
-	
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	UInputComponent* InputComponent = nullptr;
+
+	//Ray-cast and grab what's in reach
+	void Grab();
+
+	//Called when key is released
+	void Release();
 };
 
